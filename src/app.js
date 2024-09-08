@@ -6,15 +6,17 @@
   var progressManager, entryPanorama, moviePanorama, viewer, videoWall, renderer, SOUND_OVER, SOUND_CLICK;
 
   var categories = [
-    { id: -1,    size: '2x2', position: { x: -1  , y: 0    }, name: "Missions"         },
-    { id: 35,    size: '1x1', position: { x: 0.5 , y: 0.5  }, name: "Latest Images"          },
-    { id: 14,    size: '1x1', position: { x: 0.5 , y: -0.5 }, name: "Latest News"         },
-    { id: 878,   size: '3x1', position: { x: 2   , y: 0.5  }, name: "The Webb Spacecraft" },
-    { id: 10770, size: '3x1', position: { x: 2   , y: -0.5 }, name: "About Crew"         },
+    { id: 28,    size: '1x1', position: { x: -2.5, y: 0.5  }, name: "Action"          },
+    { id: 12,    size: '1x1', position: { x: -2.5, y: -0.5 }, name: "Adventure"       },
+    { id: -1,    size: '2x2', position: { x: -1  , y: 0    }, name: "Popular"         },
+    { id: 35,    size: '1x1', position: { x: 0.5 , y: 0.5  }, name: "Comedy"          },
+    { id: 14,    size: '1x1', position: { x: 0.5 , y: -0.5 }, name: "Fantasy"         },
+    { id: 878,   size: '2x1', position: { x: 2   , y: 0.5  }, name: "Science Fiction" },
+    { id: 10770, size: '2x1', position: { x: 2   , y: -0.5 }, name: "TVMovie"         },
     { id: -1,    size: '2x1', position: { x: -2  , y: -1.5 }, name: "Now Playing"     },
-    { id: -1,    size: '2x1', position: { x: 0   , y: -1.5 }, name: "Webb Science Goals"        },
-    { id: -1,    size: '1x1', position: { x: 1.5 , y: -1.5 }, name: "Webb in 3D"       },
-    { id: 80,    size: '1x1', position: { x: 2.5 , y: -1.5 }, name: "About US"           }
+    { id: -1,    size: '2x1', position: { x: 0   , y: -1.5 }, name: "Upcoming"        },
+    { id: -1,    size: '1x1', position: { x: 1.5 , y: -1.5 }, name: "Top Rated"       },
+    { id: 80,    size: '1x1', position: { x: 2.5 , y: -1.5 }, name: "Crime"           }
   ];
 
   progressManager = generateProgressManager();
