@@ -19,4 +19,4 @@ jobs:
         key: ${{ secrets.BBIL }}
         port: '22'
         script: |
-          cd /var/www/nasa/webbner/ && git pull origin main
+          cd /var/www/nasa/webbner/ && git pull origin master
