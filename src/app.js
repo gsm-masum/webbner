@@ -7,14 +7,14 @@
 
   var categories = [
     { id: -1,    size: '2x2', position: { x: -2  , y: 0    }, name: "Missions"},
-    { id: 35,    size: '1x1', position: { x: 0.5 , y: 0.5  }, name: "Comedy"          },
-    { id: 14,    size: '1x1', position: { x: 0.5 , y: -0.5 }, name: "Fantasy"         },
-    { id: 878,   size: '2x1', position: { x: 2   , y: 0.5  }, name: "Science Fiction" },
-    { id: 10770, size: '2x1', position: { x: 2   , y: -0.5 }, name: "TVMovie"         },
-    { id: -1,    size: '2x1', position: { x: -2  , y: -1.5 }, name: "Now Playing"     },
-    { id: -1,    size: '2x1', position: { x: 0   , y: -1.5 }, name: "Upcoming"        },
-    { id: -1,    size: '1x1', position: { x: 1.5 , y: -1.5 }, name: "Top Rated"       },
-    { id: 80,    size: '1x1', position: { x: 2.5 , y: -1.5 }, name: "Crime"           }
+    { id: 35,    size: '1x1', position: { x: -0.5 , y: 0.5  }, name: "Latest Image"},
+    { id: 14,    size: '1x1', position: { x: -0.5 , y: -0.5 }, name: "Latest News"},
+    { id: 878,   size: '3x1', position: { x: 1   , y: 0.5  }, name: "About Webb"},
+    { id: 10770, size: '3x1', position: { x: 1   , y: -0.5 }, name: "About Crew"},
+    { id: -1,    size: '2x1', position: { x: -2  , y: -1.5 }, name: "All Images"},
+    { id: -1,    size: '2x1', position: { x: 0   , y: -1.5 }, name: "Scinece Goals"        },
+    { id: -1,    size: '1x1', position: { x: 1.5 , y: -1.5 }, name: "The Spacecraft"       },
+    { id: 80,    size: '1x1', position: { x: 2.5 , y: -1.5 }, name: "About Us"           }
   ];
 
   progressManager = generateProgressManager();
@@ -491,20 +491,20 @@
       case 'Missions':
         getPopularMovies( tile, { page: page } );
         break;
-      case 'Now Playing':
+      case 'All Images':
         getNowPlayingMovies( tile, { page: page } );
         break;
-      case 'Upcoming':
+      case 'Scinece Goals':
         getUpcomingMovies( tile, { page: page } );
         break;
-      case 'Top Rated':
+      case 'The Spacecraft':
         getTopRatedMovies( tile, { page: page } );
         break;
-      case 'Comedy':
-      case 'Fantasy':
-      case 'Science Fiction':
-      case 'TVMovie':
-      case 'Crime':
+      case 'Latest Image':
+      case 'Latest News':
+      case 'About Webb':
+      case 'About Crew':
+      case 'About Us':
         getGenreMovies( tile, { id: tile.categoryId, page: page } );
         break;
     }
