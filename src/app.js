@@ -6,8 +6,6 @@
   var progressManager, entryPanorama, moviePanorama, viewer, videoWall, renderer, SOUND_OVER, SOUND_CLICK;
 
   var categories = [
-    { id: 28,    size: '1x1', position: { x: -2.5, y: 0.5  }, name: "Action"          },
-    { id: 12,    size: '1x1', position: { x: -2.5, y: -0.5 }, name: "Adventure"       },
     { id: -1,    size: '2x2', position: { x: -1  , y: 0    }, name: "Popular"         },
     { id: 35,    size: '1x1', position: { x: 0.5 , y: 0.5  }, name: "Comedy"          },
     { id: 14,    size: '1x1', position: { x: 0.5 , y: -0.5 }, name: "Fantasy"         },
