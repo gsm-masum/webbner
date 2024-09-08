@@ -16,7 +16,7 @@ jobs:
       with:
         host: ${{ secrets.BBIL_IP }}
         username: 'root'
-        key: ${{ secrets.BBIIL }}
+        key: ${{ secrets.BBIL }}
         port: '22'
         script: |
-          cd /var/www/nasa/webbner/ && git pull origin main
+          cd /var/www/nasa/webbner/ && git pull origin master
