@@ -530,8 +530,8 @@
         });
         result.results.splice( result.results.indexOf( symbolicMovie ), 1 );
         result.results.unshift( symbolicMovie );
-
-        PANOLENS.Utils.TextureLoader.load( addMovieDBImagePrefix( symbolicMovie.poster_path ).replace( '/w185/', '/w500/' ), setImageTexture.bind( this, progressManager.addLoaded.bind( progressManager ) ), undefined, progressManager.addLoaded.bind( progressManager ) );
+        
+        PANOLENS.Utils.TextureLoader.load( '/asset/image/title_bg.jpg', setImageTexture.bind( this, progressManager.addLoaded.bind( progressManager ) ), undefined, progressManager.addLoaded.bind( progressManager ) );
 
         progressManager.addTotal( result.results.length );
         videoWall.addMovies( result.results );
