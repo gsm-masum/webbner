@@ -1565,7 +1565,7 @@
           tile.tween( 'show', tile.material, { opacity: initialOpacity }, duration, easing, 0, makeVisible.bind( tile ));
           tile.tween( 'hide', tile.material, { opacity: 0 }, duration, easing, 0, null, null, makeInvisible.bind( tile ));
           makeTranslationAnimation();
-          PANOLENS.Utils.TextureLoader.load( addMovieDBImagePrefix( movie.poster_path ), setClampTexture.bind( tile, progressManager.addLoaded.bind( progressManager ) ), undefined, progressManager.addLoaded.bind( progressManager ) );
+          PANOLENS.Utils.TextureLoader.load( '/asset/image/tile_bg.jpg' , setClampTexture.bind( tile, progressManager.addLoaded.bind( progressManager ) ), undefined, progressManager.addLoaded.bind( progressManager ) );
           
           title = new PANOLENS.SpriteText( movie.title, 600 );
           title.rotation.y = Math.PI;
