@@ -3,10 +3,10 @@ name: Auto Deployment
 on:
   push:
    branches:
-      - 'main'
+      - 'master'
 
 jobs:
-  Deploy-to-Main:
+  Deploy-to-Master:
 
     runs-on: ubuntu-latest
 
