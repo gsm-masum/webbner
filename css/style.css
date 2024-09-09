@@ -58,11 +58,11 @@ p {
 }
 
 .title {
-  font-size: 4em;
+  font-size: 8em;
 }
 
 .subtitle {
-  font-size: 1em;
+  font-size: 3em;
 }
 
 .title > p {

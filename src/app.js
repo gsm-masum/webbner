@@ -12,7 +12,7 @@
     { id: 878,   size: '3x1', position: { x: 1.5   , y: 0.5  }, name: "About Webb"},
     { id: 10770, size: '3x1', position: { x: 1.5   , y: -0.5 }, name: "About Crew"},
     { id: -1,    size: '2x1', position: { x: -2  , y: -1.5 }, name: "All Images"},
-    { id: -1,    size: '2x1', position: { x: 0   , y: -1.5 }, name: "Scinece Goals"},
+    { id: -1,    size: '2x1', position: { x: 0   , y: -1.5 }, name: "Science Goals"},
     { id: -1,    size: '1x1', position: { x: 1.5 , y: -1.5 }, name: "The Spacecraft"},
     { id: 80,    size: '1x1', position: { x: 2.5 , y: -1.5 }, name: "About Us"}
   ];
@@ -440,9 +440,7 @@
   }
 
   function getPopularMovies ( target, options ) {
-
     theMovieDb.movies.getPopular( options, getListSuccess.bind( target ), error );
-
   }
 
   function getUpcomingMovies ( target, options ) {
@@ -494,7 +492,7 @@
       case 'All Images':
         getNowPlayingMovies( tile, { page: page } );
         break;
-      case 'Scinece Goals':
+      case 'Science Goals':
         getUpcomingMovies( tile, { page: page } );
         break;
       case 'The Spacecraft':
@@ -512,7 +510,6 @@
   }
 
   function getListSuccess ( result ) {
-
     var scope = this, symbolicMovie;
 
     result = JSON.parse( result );
@@ -521,6 +518,9 @@
       if ( movies[ this.category ] ) {
         movies[ this.category ].results = movies[ this.category ].results.concat( result.results );
       } else {
+        for ( var i = 0; i < result.results.length; i++ ) {
+          result.results[ i ].poster_path = '/asset/image/'+ this.category + '.jpg';
+        }
         movies[ this.category ] = result;
         result.results.map( function( movie ) {
           if ( !symbolicMovie && !loaded[ movie.id ] && movie.poster_path ) {
@@ -746,6 +746,7 @@
         SOUND_CLICK.stop();SOUND_CLICK.play();
         moviePanorama.movieData = movies[ this.category ];
         moviePanorama.movie = moviePanorama.movieData.results[ 0 ];
+        moviePanorama.movie.backdrop_path = '/asset/image/tile_bg.jpg'
         moviePanorama.category = this.category;
         moviePanorama.movieIndex = 0;
         viewer.panorama.visible = false;
