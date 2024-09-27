@@ -1,0 +1,24 @@
+name: Main Auto Deployment
+
+on:
+  push:
+   branches:
+      - 'main'
+
+jobs:
+  Deploy-to-Main:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: SSH into server and perform git operations
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.BBIL_IP }}
+        username: 'root'
+        key: ${{ secrets.BBIL }}
+        port: '22'
+        script: |
+          cd /var/www/nasa/webbner/
+          git checkout origin main 
+          git pull origin main
