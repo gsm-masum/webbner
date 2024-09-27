@@ -1,26 +1,17 @@
 <IfModule mod_mime.c>
-    # Set the MIME type for Brotli and Gzip compressed files
+    # Add Gzip encoding for compressed files
     AddEncoding gzip .gz
-    AddEncoding br .br
 
     # Set MIME types for specific file types
     AddType application/javascript .js
-    AddType application/javascript .js.gz .js.br
     AddType application/octet-stream .data
-    AddType application/octet-stream .data.gz .data.br
     AddType application/wasm .wasm
-    AddType application/wasm .wasm.gz .wasm.br
+    AddType application/javascript .js.gz
+    AddType application/octet-stream .data.gz
+    AddType application/wasm .wasm.gz
 </IfModule>
 
 <IfModule mod_headers.c>
-    # Serve Brotli files with Content-Encoding: br
-    <FilesMatch "\.(js\.br|data\.br|wasm\.br)$">
-        Header set Content-Encoding br
-        Header set Cache-Control "public, max-age=31536000"
-        Header unset ETag
-        Header set Vary "Accept-Encoding"
-    </FilesMatch>
-
     # Serve Gzip files with Content-Encoding: gzip
     <FilesMatch "\.(js\.gz|data\.gz|wasm\.gz)$">
         Header set Content-Encoding gzip
@@ -28,14 +19,15 @@
         Header unset ETag
         Header set Vary "Accept-Encoding"
     </FilesMatch>
+
+    # Serve WebAssembly files with the correct MIME type
+    <FilesMatch "\.wasm(\.gz)?$">
+        Header set Content-Type application/wasm
+    </FilesMatch>
 </IfModule>
 
-# Optional: Remove .gz or .br extension in URLs (for clean URLs)
+# Optional: Remove .gz extension in URLs (for clean URLs)
 RewriteEngine On
-RewriteCond %{HTTP:Accept-Encoding} br
-RewriteCond %{REQUEST_FILENAME}.br -f
-RewriteRule ^(.*)\.(js|data|wasm)$ $1\.$2\.br [L]
-
 RewriteCond %{HTTP:Accept-Encoding} gzip
 RewriteCond %{REQUEST_FILENAME}.gz -f
 RewriteRule ^(.*)\.(js|data|wasm)$ $1\.$2\.gz [L]
