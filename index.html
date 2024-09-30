@@ -10,6 +10,17 @@
 
   <meta name="author" content="WEBBner | Nasa Space Apps Challenge">
   <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TKFD1T1CBZ"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EFZVRVB8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EFZVRVB8');
+  </script>
 
   <!-- ========================= CSS here ========================= -->
   <link rel="stylesheet" href="assets/css/bootstrap-4.5.0.min.css">
@@ -79,7 +90,7 @@
             <div class="col-xl-12">
               <!-- heading start  -->
               <div class="heading">
-                <h1 class="text-white wow fadeInUp" data-wow-delay=".2s">WEBBner is Loading ... </h1>
+                <h1 class="text-white wow fadeInUp" data-wow-delay=".2s">Loading WEBBner ... </h1>
               </div>
               <!-- heading end  -->
             </div>
@@ -88,8 +99,9 @@
               <div class="wow fadeInRight" data-wow-delay=".4s">
                 <!-- Progress Bar -->
                 <div id="progress-bar" class="progress">
-                  <div id="progress-bar-full" class="progress-bar" role="progressbar" style="width: 0%; background-color: #743af7;"
-                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                  <div id="progress-bar-full" class="progress-bar" role="progressbar"
+                    style="width: 0%; background-color: #743af7;" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100">
                   </div>
                 </div>
                 <!-- Progress Percentage Text -->
@@ -97,7 +109,7 @@
                   <p class="text-center">0.00%</p>
                 </div>
                 <div id="bandwidth-text" class="text-white mt-2">
-                  <p class="text-center">At Speed: 0 KB/s</p>
+                  <p class="text-center">At: 0 KB/s</p>
                 </div>
               </div>
               <!-- loader end -->
@@ -170,7 +182,6 @@
         var totalSizeLoadedMB = (progress * totalBuildSizeMB).toFixed(2); // Multiply progress by total size in MB
         var bandwidthKBps = ((totalSizeLoadedMB * 1024) / elapsedTime).toFixed(2); // Convert to KB/s (1MB = 1024KB)
         bandwidthText.innerHTML = `At Speed: ${bandwidthKBps} Kbps`;
-
 
       }).then((unityInstance) => {
         // Hide loader and show the canvas when done
