@@ -96,12 +96,13 @@
           </div>
           <div class="col-md-8">
             <div class="header-right text-right">
-              <a class="wow fadeInUp" data-wow-delay="1.6">Use Mouse to Look Around</a>
-              <a class="wow fadeInUp" data-wow-delay="0.8s">Use W A S D or arrow keys ← ↑↓ → to Move</a>
-
-              <a class="wow fadeInUp" data-wow-delay="1.6s">Use Joystick to Look Around and Move in Phone</a>
-              <a class="wow fadeInUp" data-wow-delay="2.4s">For Better Experience Please use Laptop or Desktop</a>
-
+              <a class="wow fadeInUp" data-wow-delay="0s">Use Mouse to Look Around</a>
+              <a class="wow fadeInUp" data-wow-delay="1s">Use W A S D or arrow keys ← ↑↓ → to Move</a>
+              <a class="wow fadeInUp" data-wow-delay="2s">Use Joystick to Look Around and Move in Phone</a>
+              <a class="wow fadeInUp" data-wow-delay="3s">Use Earphones or Headphone for Better Experience</a>
+              <a class="wow fadeInUp" data-wow-delay="4s">For Better Experience Please use Laptop or Desktop</a>
+              <a class="wow fadeInUp" data-wow-delay="5s">Click to enter Immersive Mode, Press Esc to Release
+                Cursor</a>
             </div>
           </div>
         </div>
@@ -202,6 +203,8 @@
         progress = progress * 3.58;
         // Update progress bar and text with percentage
         let percentage = (progress * 100).toFixed(2); // 'progress' ranges from 0 to 1, so multiply by 100
+        if (percentage > 99.99) percentage = 100;
+
         progressBarFull.style.width = `${percentage}%`;
         loadingText.innerHTML = `${percentage}%`;
 
@@ -209,7 +212,7 @@
         var elapsedTime = (Date.now() - startTime) / 1000; // Time in seconds
         var totalSizeLoadedMB = (progress * totalBuildSizeMB).toFixed(2); // Multiply progress by total size in MB
         var bandwidthKBps = ((totalSizeLoadedMB * 1024) / elapsedTime).toFixed(2); // Convert to KB/s (1MB = 1024KB)
-        bandwidthText.innerHTML = `Downloading 70 Mb | ${bandwidthKBps} Kbps`;
+        bandwidthText.innerHTML = `Downloading 75 Mb | ${bandwidthKBps} Kbps`;
 
       }).then((unityInstance) => {
         // Hide loader and show the canvas when done
