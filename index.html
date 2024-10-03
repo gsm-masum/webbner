@@ -53,6 +53,29 @@
       /* Center content vertically (optional) */
       align-items: center;
       /* Center content horizontally (optional) */
+      background: linear-gradient(270deg, #82002c, #820066, #750082) !important;
+      background-size: 300% 300%;
+      /* Allows for smooth gradient transition */
+      animation: gradientAnimation 10s ease infinite;
+      /* Animation duration and easing */
+      color: #61dafb;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+        /* Start at the left */
+      }
+
+      50% {
+        background-position: 100% 50%;
+        /* Move to the right */
+      }
+
+      100% {
+        background-position: 0% 50%;
+        /* Return to the start */
+      }
     }
   </style>
 </head>
@@ -73,7 +96,12 @@
           </div>
           <div class="col-md-8">
             <div class="header-right text-right">
-              <a href="#">Please wait while we load WEBBner</a>
+              <a class="wow fadeInUp" data-wow-delay="1.6">Use Mouse to Look Around</a>
+              <a class="wow fadeInUp" data-wow-delay="0.8s">Use W A S D or arrow keys ← ↑↓ → to Move</a>
+
+              <a class="wow fadeInUp" data-wow-delay="1.6s">Use Joystick to Look Around and Move in Phone</a>
+              <a class="wow fadeInUp" data-wow-delay="2.4s">For Better Experience Please use Laptop or Desktop</a>
+
             </div>
           </div>
         </div>
@@ -181,7 +209,7 @@
         var elapsedTime = (Date.now() - startTime) / 1000; // Time in seconds
         var totalSizeLoadedMB = (progress * totalBuildSizeMB).toFixed(2); // Multiply progress by total size in MB
         var bandwidthKBps = ((totalSizeLoadedMB * 1024) / elapsedTime).toFixed(2); // Convert to KB/s (1MB = 1024KB)
-        bandwidthText.innerHTML = `At Speed: ${bandwidthKBps} Kbps`;
+        bandwidthText.innerHTML = `Downloading 70 Mb | ${bandwidthKBps} Kbps`;
 
       }).then((unityInstance) => {
         // Hide loader and show the canvas when done
